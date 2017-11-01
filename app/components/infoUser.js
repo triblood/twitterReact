@@ -2,36 +2,19 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var TwitterUser = require('../services/TwitterUser');
 
-TwitterUser.getUserInfo().then(function(response){
-	console.log(response.data);
-	response.data.name
-});
+// TwitterUser.getUserInfo().then(function(response){
+// 	// console.log(response.data.name);
+// 	response.data.name
+// });
 
 
 var infoUser = createReactClass({
-	getInitialState: () => {
-		return{
-			nome:'',
-			bgImg: '',
-			imgUsr: '',
-			nick:'',
-			tweets: '',
-			following: '',
-			followers: ''
-		};
-	},
-	getData: () => {
-		TwitterUser.getUserInfo().then(function(e){
-			console.log(e.data.name);
-			this.setState({nome: e.data.name});
-		});
-	},
-	render: () => {
+	render: function(){
 		return(
 			<div className="Info">
 				<div className="imgUser"></div>
 				<div className="dataUser">
-					<div className="nameUser">{this.state.nome}</div>
+					<div className="nameUser"></div>
 					<div className="nickUser"></div>
 				</div>
 				<div className="otherInfos">
