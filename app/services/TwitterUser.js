@@ -2,19 +2,7 @@ var axios = require('axios');
 
 var TwitterUserServices = {
 	getUserInfo: function() {
-		return axios.get('https://api.twitter.com/1.1/account/verify_credentials.json', {
-			headers: {
-				'Authorization': {
-					oauth_consumer_key: '',
-					oauth_token: '',
-					oauth_signature_method: '',
-					oauth_timestamp: '',
-					oauth_nonce: '',
-					oauth_version: '1.0',
-					oauth_signature:''
-				}
-			}
-		});
+		return axios.get('http://localhost/sandbox/twitter/getInfoUser.php');
 	}
 }
 
