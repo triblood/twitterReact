@@ -1,7 +1,6 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react'
+import ReactDOM from 'react-dom'
 import css from '../styles/style.css'
+import Twitter from './components/Twitter'
 
-var Twitter = require('./components/Twitter')
-
-ReactDOM.render(<Twitter />, document.getElementById('app'));
+ReactDOM.render(<Twitter /> , document.getElementById('app'));
