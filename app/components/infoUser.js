@@ -1,7 +1,12 @@
 import React from 'react'
+import TwitterUser from '../services/TwitterUser'
+
+TwitterUser.getUserInfo().then(function(response){
+	console.log(response.data.name);
+});
 
 
-export default props => (
+export default () => (
 	<div className="Info">
 		<div className="imgUser"></div>
 		<div className="dataUser">

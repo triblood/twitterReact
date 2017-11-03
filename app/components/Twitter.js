@@ -1,10 +1,5 @@
 import React from 'react'
 import InfoUser from './infoUser'
-import TwitterUser from '../services/TwitterUser'
-
-TwitterUser.getUserInfo().then(function(response){
-	console.log(response.data);
-});
 
 export default () => ( 
     <div className = "container">
