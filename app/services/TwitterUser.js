@@ -1,8 +1,13 @@
 var axios = require('axios');
 
 var TwitterUserServices = {
-	getUserInfo: function() {
-		return axios.get('http://localhost/sandbox/twitter/getInfoUser.php');
+	getUserInfo: ()=> {
+		return axios.get('http://localhost/sandbox/twitter/getInfoUser.php')
+		.then((arr) => {
+			return{
+				info: arr
+			}
+		})
 	}
 }
 

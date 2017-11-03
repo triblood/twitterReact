@@ -2,7 +2,7 @@ import React from 'react'
 import TwitterUser from '../services/TwitterUser'
 
 TwitterUser.getUserInfo().then(function(response){
-	console.log(response.data.name);
+	console.log(response);
 });
 
 

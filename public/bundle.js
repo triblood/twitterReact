@@ -22529,7 +22529,7 @@ var _TwitterUser2 = _interopRequireDefault(_TwitterUser);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _TwitterUser2.default.getUserInfo().then(function (response) {
-	console.log(response.data.name);
+	console.log(response);
 });
 
 exports.default = function () {
@@ -22591,7 +22591,11 @@ var axios = __webpack_require__(47);
 
 var TwitterUserServices = {
 	getUserInfo: function getUserInfo() {
-		return axios.get('http://localhost/sandbox/twitter/getInfoUser.php');
+		return axios.get('http://localhost/sandbox/twitter/getInfoUser.php').then(function (arr) {
+			return {
+				info: arr
+			};
+		});
 	}
 };
 
