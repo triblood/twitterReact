@@ -7,27 +7,16 @@ class App extends Component{
 	{
 		super();
 		this.state = {
-			nome: '',
-			nick: '',
-			imgUser: '',
-			bgUser: '',
-			tweetsNum: '',
-			followers: '',
-			following: ''
+			tweet: []
 		}
 	}
 
 	componentDidMount(){
-		axios.get('http://localhost/sandbox/twitter/getInfoUser.php')
+		axios.get('http://localhost/sandbox/twitter/getTweetUser.php')
 		.then(({data}) => {
+            console.log(data)
 			this.setState({
-				nome: data.name,
-				nick: data.screen_name,
-				imgUser: data.profile_image_url,
-				bgUser: data.profile_background_image_url,
-				tweetsNum: data.statuses_count,
-				followers: data.followers_count,
-				following: data.friends_count
+				tweet: data
 			})
 		})
 		.catch((err) => {})
@@ -35,28 +24,22 @@ class App extends Component{
 
 	render()
 	{
+        const tweetL = this.state.tweet.map((el, index) => {
+            return <div key={index}>
+                <div className="infoTweet">
+                    <div className="TweetUser">{ el.user.name }</div>
+                    <div className="TweetNick">@{ el.user.screen_name}</div>
+                    <div className="TweetCreate">{ el.created_at}</div>
+                </div>
+                <div className="txtTweet">
+                    {el.text}
+                </div>
+            </div>
+        });
 		return(
-			<div className="Info">
-				<div className="imgUser"><img src={ this.state.imgUser } /></div>
-				<div className="dataUser">
-					<div className="nameUser">{ this.state.nome }</div>
-					<div className="nickUser">{ this.state.nick }</div>
-				</div>
-				<div className="otherInfos">
-					<div className="Tweets">
-						<span className="titulo">Tweets</span>
-						<strong className="data">{ this.state.tweetsNum }</strong>
-					</div>
-					<div className="Seguindo">
-						<span className="titulo">Seguindo</span>
-						<strong className="data">{ this.state.following }</strong>
-					</div>
-					<div className="Seguidores">
-						<span className="titulo">Seguidores</span>
-						<strong className="data">{ this.state.followers }</strong>
-					</div>
-				</div>
-			</div>
+			<div className="mainTweet">
+                {tweetL}
+            </div>
 		)
 	}
 }
