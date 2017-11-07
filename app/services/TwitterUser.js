@@ -4,9 +4,11 @@ var TwitterUserServices = {
 	getUserInfo: ()=> {
 		return axios.get('http://localhost/sandbox/twitter/getInfoUser.php')
 		.then((arr) => {
-			return{
-				info: arr
-			}
+			this.setState(
+				{
+					
+				}
+			)
 		})
 	}
 }
